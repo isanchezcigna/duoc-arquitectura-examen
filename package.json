@@ -1,0 +1,35 @@
+{
+  "name": "duoc-arquitectura-examen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "now"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isanchezcigna/duoc-arquitectura-examen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isanchezcigna/duoc-arquitectura-examen/issues"
+  },
+  "homepage": "https://github.com/isanchezcigna/duoc-arquitectura-examen#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "next": "^13.0.4",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "now": "^21.0.1"
+  }
+}
