@@ -26,3 +26,17 @@ PASO A PASO:
     python manage.py makemigrations
     python manage.py migrate
     python manage.py createsuperuser
+
+
+
+
+
+
+
+
+CONECTAR A HEROKU:
+
+1) npm i -g heroku
+2) heroku login
+3) heroku plugins:install heroku-connect-plugin
+4) heroku git:remote -a nombreapp
