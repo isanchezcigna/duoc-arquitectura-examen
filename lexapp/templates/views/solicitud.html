@@ -1,0 +1,32 @@
+{% extends 'layout/base.html' %}
+{% block main %}
+{% load static %}
+<section id="middle">
+</section>
+<section id="main-content" class="text-white" style="background-color: #37393e;">
+    <div class="subheader row justify-content-between border-1 border-bottom pb-2" style="border-color: rgba(0,0,0,0.15) !important;">
+        <div class="col">
+            <h3 class="subheader-title">
+                <i class="fa-solid fa-list-alt"></i> Enviar <strong>Solicitud</strong>
+            </h3>
+        </div>
+    </div>
+    <div class="content py-3">
+        <div class="row col-6">
+            <form class="needs-validation" novalidate="" method="post" ></form>
+            {% csrf_token %}
+                    {% if messages%}
+                        {% for m in messages %}
+                            {{m}}
+                        {% endfor %}
+                    {% else %}
+                        {{ form }}
+                        <hr class="my-4">
+                        <button class="w-25 btn btn-primary btn-lg" type="submit">Enviar</button>
+                    {% endif %}
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock main %}
+    

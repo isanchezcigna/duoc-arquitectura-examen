@@ -1,0 +1,69 @@
+{% extends 'layout/auth.html' %}
+{% block main %}
+{% load static %}
+
+<div class="page-wrapper auth">
+	<div class="page-inner bg-brand-gradient">
+		<div class="page-content-wrapper bg-transparent m-0">
+			<div class="height-10 w-100 shadow-lg px-4 bg-brand-gradient">
+				<div class="d-flex align-items-center container p-0">
+
+					<div class="page-logo width-mobile-auxto m-0 align-items-center justify-content-between p-0 bg-transparent bg-img-none shadow-0 height-9 border-0">
+						<a href="javascript:void(0)" class="page-logo-link press-scale-down d-flex align-items-center">
+						<img src="https://lexgrupo.cl/mt-content/uploads/2020/02/mediumsquarelogo.png" alt="Lex App" style="width: 20%" aria-roledescription="logo">
+						<span class="page-logo-text mr-1"></span>
+						</a>
+					</div>
+
+				</div>
+			</div>
+			<div class="flex-1" style="background: url(img/svg/pattern-1.svg) no-repeat center bottom fixed; background-size: cover;">
+				<div class="container py-4 py-lg-5 my-lg-5 px-4 px-sm-0">
+					<div class="row">
+						<div class="col col-md-6 col-lg-7 hidden-sm-down">
+							<h2 class="fs-xxl fw-500 mt-4 text-white">
+								Un equipo de abogados especializados en la Defensa de Deudores y Trabajadores.
+								<small class="h3 fw-300 mt-3 mb-5 text-white opacity-60"><p>
+                                    <p>✔ Negociación de Deudas </p>
+                                    <p>✔ Defensa en Juicio de Cobranza y Embargos</p>
+                                    <p>✔ Ley de Quiebra Personal </p>     
+                                    <p>✔ Aclaración de Antecedentes Comerciales</p>
+                                </p>
+								</small>
+							</h2>
+							<a href="https://lexgrupo.cl/" class="btn btn-lg btn-success text-white opacity-70">más info... &gt;&gt;</a>
+							<div class="d-sm-flex flex-column align-items-center justify-content-center d-md-block">
+								<div class="px-0 py-1 mt-5 text-white fs-nano opacity-50">
+									Síguenos en nuestras redes
+								</div>
+								<div class="d-flex flex-row opacity-70">
+									<a href="https://www.facebook.com/Lexgrupoabogados/" class="mr-2 fs-xxl text-white">
+										<i class="fab fa-facebook-square btn-lg"></i>
+									</a>
+									<a href="https://www.instagram.com/lexgrupoabogados/" class="mr-2 fs-xxl text-white">
+										<i class="fab fa-instagram-square btn-lg"></i>
+									</a>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-5 col-xl-4 ml-auto">
+							<div class="card p-4 rounded-plus bg-faded">
+								<form method="post">
+                                    {% load crispy_forms_tags %}
+                                    {% csrf_token %}
+                                    {{ form | crispy}}
+                                    <hr class="my-4">
+                                    <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit" onclick="validateForm();">Registrarme</button>
+								</form>
+                                <small class="text-muted">Al hacer clic en Registrarme usted acepta los <a href="!#" class="disabled" data-bs-dismiss="modal">terminos y condiciones</a> del servicio</small>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock main %}
