@@ -10,8 +10,6 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.base import RedirectView
 import requests
 import json
-# Create your views here.
-
 
 @login_required
 def inicio(request):

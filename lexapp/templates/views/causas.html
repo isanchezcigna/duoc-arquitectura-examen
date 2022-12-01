@@ -14,7 +14,7 @@
             {% if request.user.is_staff %}
             <a href="{% url 'add_causa' %}" class="btn btn-primary waves-effect waves-themed ">
                 <span class="fas fa-plus mr-1"></span>
-                <strong>Nueva Causa</strong>
+                <strong>Nuevo taller</strong>
             </a>
             {% endif %}
         </div>
@@ -25,9 +25,9 @@
                 <thead>
                     <tr>
                         <th scope="col"># Taller</th>
-                        <th scope="col">Tribunal</th>
-                        <th scope="col">Corte</th>
-                        <th scope="col">Litigante</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Género</th>
+                        <th scope="col">Sede</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -57,7 +57,7 @@
                             <script>
                                 Swal.fire({
                                     'title': 'Oh oh...',
-                                    'text' : '¡No existen registros!',
+                                    'text' : '¡No existen talleres!',
                                     'icon' : 'error'
                                 })
                             </script>
