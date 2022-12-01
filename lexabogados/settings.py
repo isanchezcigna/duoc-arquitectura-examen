@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-x($0)vrfcg0u&_lh$-!5sp2nqwyq2q=e!19i@!!(39n30r!^%(
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://lexapp.administra.me', 'https://lex-abogados.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://tallermunicipal.administra.me', 'https://tallermunicipal.herokuapp.com/']
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
@@ -58,7 +58,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -90,12 +89,12 @@ WSGI_APPLICATION = 'lexabogados.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd3tkpornj9eet4',
-        'USER': 'ejbvdxgfywxytg',
-        'PASSWORD': '4de6c9f68d1dc9767b196babc595f9d2e30466cc289f7d37fb2bf016b111cf8b',
-        'HOST': 'ec2-54-165-178-178.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'csy77511_talleres',
+        'USER': 'csy77511_talleres',
+        'PASSWORD': 'Dj%458535.,',
+        'HOST': 'syntaxit.cl',
+        'PORT': '3306',
     }
 }
 

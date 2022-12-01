@@ -13,3 +13,16 @@ Ambiente desarrollo local:
     pip install -r requirements.txt
 - Iniciar tipeando: 
     python.exe .\manage.py runserver
+
+
+De agregar otras librerias, debes refrescar el archivo requeriments.txt:
+    pip freeze > requirements.txt
+
+
+
+PASO A PASO:
+
+- Subir modelo a BD:
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py createsuperuser

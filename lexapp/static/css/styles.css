@@ -1,5 +1,5 @@
 body {
-    background-color: #37393E;
+    background-color: #fff;
     /* background-image: url(../img/bg.png); */
     background-position: top center;
     background-repeat: no-repeat;
@@ -7,10 +7,10 @@ body {
     background-size: auto;
 }
 .bg-primary{
-    background: #AB926D;
+    background: #fff;
 }
 .bg-secondary{
-    background: #005EA7;
+    background: #236192;
 }
 .bg-gato{
     background: #FCFCFC;
@@ -50,13 +50,13 @@ body {
     text-shadow: none;
 }
 .nav-item .nav-link:hover{
-    background: #AB926D;
-    color: rgba(46, 43, 41, 1);
-    text-shadow: 1px 1px 0 rgb(255 255 255 / 20%);
+    background: #ED6600;
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     
 }
 .nav-pills .nav-link {
-    color: #A0A5AB;
+    color: #fff;
     font-weight: 700!important;
     text-shadow: 1px 1px 0 #000;
     
@@ -72,7 +72,7 @@ body {
 
 }
 .nav.me-auto .nav-link {
-    color: #AB926D;
+    color: #ED6600;
 }
 .nav.nav.me-auto .nav-link:hover {
     color: #005EA7;
@@ -82,9 +82,9 @@ body {
 }
 .btn-primary {
     
-    background: #AB926D;
-    color: rgba(46, 43, 41, 1);
-    text-shadow: 1px 1px 0 rgb(255 255 255 / 20%);
+    background: #ED6600;
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(51, 51, 51, 0.2);
     font-weight: 500;
 }
 .btn-primary a {
@@ -93,7 +93,7 @@ body {
 }
 .btn-primary:hover{
     color: #fff;
-    background: #005EA7;
+    background: #7C4A3A;
 }
 .text-primary span {
     color: rgba(46, 43, 41, 1);
