@@ -1,0 +1,130 @@
+{% extends 'layout/base.html' %}
+{% block main %}
+{% load static %}
+<section id="middle">
+</section>
+<section id="main-content" class="text-white" style="background-color: #37393e;">
+    <div class="subheader row justify-content-between border-1 border-bottom pb-2" style="border-color: rgba(0,0,0,0.15) !important;">
+        <div class="col">
+            <h3 class="subheader-title">
+                <i class="fa-solid fa-list-alt bg-secundary"></i> Listar <strong>{% if request.user.is_staff %}{% else %}Mis {% endif %}Solicitudes</strong>
+            </h3>
+        </div>
+        <div class="col justify-content-end text-end">
+            {% if request.user.is_staff %}
+            <a href="{% url 'add_solicitud' %}" class="btn btn-primary waves-effect waves-themed ">
+                <span class="fas fa-plus mr-1"></span>
+                <strong>Nueva Solicitud</strong>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="content py-3">
+        <div class="row">
+            <table class="table table-striped table-dark table-hover" id="tabla-causas" data-toolbar="#toolbar" data-search="true" data-show-refresh="true">
+                <thead>
+                    <tr>
+                        <th scope="col"># Solicitud</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Asunto</th>
+                        <th scope="col">Comentario</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if request.user.is_staff %}
+                        {% if solicitudes %}
+                            {% for s in solicitudes %}
+                            <tr>
+                                <th scope="row">{{ s.id }}</th>
+                                <td>{{ s.tipo }}</td>
+                                <td>{{ s.asunto }}</td>
+                                <td>{{ s.comentario }}</td>
+                                <td>{{ s.fecha }}</td>
+                                <td><div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Acciones
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="/admin/talleresapp/solicitud/{{ c.id }}/">Modificar</a>
+                                        <a class="dropdown-item" href="/admin/talleresapp/solicitud/{{ c.id }}/delete/">Eliminar</a>
+                                    </div>
+                                </div></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <script>
+                                Swal.fire({
+                                    'title': 'Oh oh...',
+                                    'text' : '¡No existen registros!',
+                                    'icon' : 'error'
+                                })
+                            </script>
+                        {% endif %}
+                    {% else %}
+                        <!-- {% if missolicitudes %}
+                            {% for s in missolicitudes %}
+                                <tr>
+                                    <th scope="row">{{ s.id }}</th>
+                                    <td>{{ s.tipo }}</td>
+                                    <td>{{ s.asunto }}</td>
+                                    <td>{{ c.comentario }}</td>
+                                    <td>{{ c.fecha }}</td>
+                                    <td><div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Acciones
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="/admin/talleresapp/solicitud/{{ c.id }}/change/">Modificar</a>
+                                            <a class="dropdown-item" href="/admin/talleresapp/solicitud/{{ c.id }}/delete/">Eliminar</a>
+                                        </div>
+                                    </div></td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <script>
+                                Swal.fire({
+                                    'title': 'Oh oh...',
+                                    'text' : '¡No existen registros!',
+                                    'icon' : 'error'
+                                })
+                            </script>
+                        {% endif %} -->
+                    {% endif %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</section>
+<div class="modal fade" tabindex="-1" role="dialog" id="modalCausa">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-5 shadow bg-gato">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h2 class="fw-bold mb-0">Cholito Login!</h2> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <form method="post" class="">
+                    <img class="rounded mx-auto d-block" src="{% static '/img/cat-loading.gif' %}" width="60%" alt="Gatito Yico te espera...">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control rounded-4" id="loginEmail" placeholder="correo@dominio.com">
+                        <label for="loginEmail">Correo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control rounded-4" id="loginPassword" placeholder="Contraseña">
+                        <label for="loginPassword">Contraseña</label>
+                    </div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit" onclick="validateForm();">Iniciar Sesión</button>
+                    <hr class="my-4">
+                    <h2 class="fs-5 fw-bold mb-3">No tienes cuenta?</h2>
+                    <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#modalRegistro" data-bs-toggle="modal" data-bs-target="#modalRegistro" type="button" aria-haspopup="true" aria-expanded="false">Registrarme</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock main %}
+    

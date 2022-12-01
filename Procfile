@@ -1,2 +1,2 @@
-web: python manage.py collectstatic --no-input; gunicorn lexabogados.wsgi
+web: python manage.py collectstatic --no-input; gunicorn talleres.wsgi
 release: python manage.py migrate

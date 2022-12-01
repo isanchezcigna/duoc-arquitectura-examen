@@ -1,0 +1,226 @@
+{% extends 'layout/base.html' %}
+{% block main %}
+{% load static %}
+<section id="middle">
+    <div class="container">
+        <div id="carousel_banner" class="carousel slide mb-0 " data-bs-ride="carousel">
+            <div id="carousel_banner_inner" class="carousel-inner rounded" style="height: 300px; width: 100%; margin: auto;">
+                <div class="carousel-item active">
+                    <img src="{% static '/img/talleres/talleres-01.jpg' %}" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/img/talleres/talleres-02.jpg' %}" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/img/talleres/talleres-03.jpg' %}" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/img/talleres/talleres-04.jpg' %}" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/img/talleres/talleres-05.jpg' %}" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/img/talleres/talleres-06.jpg' %}" wialt="">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_banner" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel_banner" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </div>
+</section>
+<section id="main" class="bg-white px-1 py-3 pb-5">
+    <div class="container fluid">
+        <div class="row g-2">
+            <div class="d-none d-lg-block col-md-5 col-lg-4 order-md-last px-3">
+                <h4 class="d-flex justify-content-between align-items-center mb-3 text-primary">
+                    <span>Otros Talleres</span>
+                </h4>
+                <div id="myCarousel" class="carousel slide mb-0" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static '/img/talleres/postulacion_taller_mujer.jpg' %}" width="100%" height="100%" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static '/img/talleres/postulacion_taller_mujer2.jpg' %}" width="100%" height="100%" alt="">
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+
+            </div>
+            <!-- <div class="col-md-7 col-lg-8 px-3"> -->
+            <div class="col">
+                <h4 class="mb-3 text-center border py-3">Formulario de Postulación Instructor</h4>
+                <!-- <form class="needs-validation" novalidate="" method="post"> -->
+                <!-- {% csrf_token %} -->
+
+                {% if messages%}
+                {% for m in messages %}
+                {{m}}
+                {% endfor %}
+                {% else %}
+                <!-- {{ form }} -->
+                <!-- <hr class="my-4">
+                    <button class="w-25 btn btn-primary btn-lg" type="submit">Enviar</button>
+                    {% endif %} -->
+                <!-- </form> -->
+                <form class="needs-validation" novalidate="" method="post">
+                    <h5>Información Personal</h5>
+                    <hr class="">
+                    <div class="row mb-3">
+                        <div class="col ">
+                            <label for="nombre">Nombre Completo:</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3 pb-3 px-0">
+                        <div class="col ">
+                            <label for="rut">RUT:</label>
+                            <input type="text" name="rut" id="rut" class="form-control mx-0" placeholder="1.234.567-8">
+                        </div>
+                        <div class="col mx-0">
+                            <label for="fecnac">Fecha de Nacimiento:</label>
+                            <input type="text" class="form-control" name="fecnac" id="fecnac" placeholder="día/mes/año">
+                        </div>
+                    </div>
+                    <h5>Información de Contacto</h5>
+                    <hr class="">
+                    <div class="row mb-3 pb-3 px-0">
+                        <div class="col">
+                            <label for="correo">Correo:</label>
+                            <input type="text" class="form-control mx-0" name="correo" id="correo"
+                                placeholder="correo@micorreo.com">
+                        </div>
+                        <div class="col">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="text" class="form-control mx-0" name="telefono" id="telefono"
+                                placeholder="(9) 1234 5678">
+                        </div>
+                    </div>
+                    <h5>Información del Taller</h5>
+                    <hr class="">
+                    <div class="row mb-3 pb-3 px-0">
+                        <div class="col">
+                            <label for="programa">Programa del taller:</label>
+                            <textarea cols="40" rows="20" class="form-control mx-0 comentario-height" name="programa"
+                                id="programa" placeholder="Explique el programa de taller a postular"></textarea>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <label for="programa">Requerimientos:</label>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <input class="form-check-input" type="checkbox" id="requiere-mat"
+                                                value="material">
+                                        <label for="requiere-mat">Requiero material</label><br>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-check-input" type="checkbox" id="requiere-lug" value="lugar">
+                                        <label for="requiere-lug">Requiero lugar</label><br>
+                                    </div>
+                                </div>
+                                <hr class="text-center mt-3 w-100">
+                                <label for="programa">Rango de fecha a impartir curso:</label>
+                                <div class="input-daterange input-group mt-2" id="datepicker">
+                                    <input type="text" class="input-sm form-control" name="inicio" placeholder="Desde" />
+                                    <span class="input-group-addon">a&nbsp;</span>
+                                    <input type="text" class="input-sm form-control" name="fin" placeholder="Hasta" />
+                                </div>
+                                <div class="row mt-3">
+                                    <label for="programa">Días a impartir:</label><br>
+                                    <div class="col mt-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="lu">
+                                                <label class="form-check-label" for="inlineCheckbox1">Lunes</label>
+                                            </input>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="ma">
+                                                <label class="form-check-label" for="inlineCheckbox2">Martes</label>
+                                            </input>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="mi">
+                                                <label class="form-check-label" for="inlineCheckbox3">Miércoles</label>
+                                            </input>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="ju">
+                                                <label class="form-check-label" for="inlineCheckbox4">Jueves</label>
+                                            </input>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="vi">
+                                                <label class="form-check-label" for="inlineCheckbox5">Viernes</label>
+                                            </input>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="sa">
+                                                <label class="form-check-label" for="inlineCheckbox6">Sábado</label>
+                                            </input>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="do">
+                                                <label class="form-check-label" for="inlineCheckbox7">Domingo</label>
+                                            </input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h5>Información de Habilidades</h5>
+                    <hr class="">
+                    <div class="row mb-3 pb-3 px-0">
+                        <div class="col">
+                            <textarea cols="40" rows="5" class="form-control mx-0" name="habilidades"
+                                id="programa" placeholder="Defina sus habilidades, incluyendo si ha realizado cursos profesionales."></textarea>
+                        </div>
+                        <div class="col">
+                            <label for="formFileMultiple" class="form-label">Adjuntar comprobante que acredite habilidades:</label>
+                            <input class="form-control" type="file" id="formFileMultiple" multiple>
+                        </div>
+                    </div>
+                    <!-- <label for="nombre">Nombre Completo:</label>
+                    <input type="text" name="nombre" class="form-control mb-3" placeholder="Nombre" id="nombre" maxlength="200" required="">
+                    <label for="correo">RUT:</label>
+                    <input type="text" name="rut" class="form-control mb-3" placeholder="12.345.678-9" id="rut" maxlength="15" required="">
+                    <label for="asunto">Fecha de Nacimiento:</label>
+                    <input type="text" name="fecnac" class="form-control mb-3" placeholder="Fecha de Nacimiento" id="asunto" maxlength="200" required="">
+                    <label for="correo">Correo Contacto:</label>
+                    <input type="text" name="correo" class="form-control mb-3" placeholder="correo@dominio.com" id="correo" maxlength="100" required="">
+                    <label for="numero_cel">Número Contacto:</label>
+                    <input type="text" name="numero_cel" class="form-control mb-3" placeholder="Número Celular" id="numero_cel" required="">
+                    <hr class="my-4">
+                    <label for="comentario">Comentario:</label>
+                    <textarea name="comentario" cols="40" rows="10" class="form-control mb-3 comentario-height" placeholder="Ingrese aquí su solicitud" id="comentario" required=""></textarea>-->
+                    <button class="w-25 btn btn-primary btn-lg" href="javascript:void(0);">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main %}

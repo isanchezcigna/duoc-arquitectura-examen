@@ -9,6 +9,7 @@ Ambiente desarrollo local:
     python.exe -m virtualenv venv
 - Activar el ambiente virtual, buscando el script correspondiente según consola: 
     \venv\Scripts\
+    ./venv/Scripts/Activate.ps1
 - Correr el comando:
     pip install -r requirements.txt
 - Iniciar tipeando: 
@@ -27,7 +28,9 @@ PASO A PASO:
     python manage.py migrate
     python manage.py createsuperuser
 
-
+- Borrar BD
+    python manage.py sqlflush
+    borrar archivos: migrations/* a excepción de init py y 0001_initial
 
 
 
