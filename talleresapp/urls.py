@@ -1,20 +1,24 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import inicio, talleres, cuenta, tienda, nosotros, solicitudes, api, registro, add_causa, add_solicitud, datos, postulacion, admin_user
+from .views import inicio, talleres, cuenta,  registro, postulacion, talleresdisponibles, postulaciones, usuarios, eliminar_usuario
 
 urlpatterns = [
     path('', inicio, name="inicio"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('registro', registro, name="registro"),
     path('talleres', talleres, name="talleres"),
-    path('caja', nosotros, name="nosotros"),      
-    path('solicitudes', solicitudes, name="solicitudes"),
-    path('usuarios', tienda, name="tienda"),
-    path('add_causa', add_causa, name="add_causa"),
-    path('add_solicitud', add_solicitud, name="add_solicitud"),
-    path('datos', datos, name="datos"),
+    # path('caja', nosotros, name="nosotros"),      
+    # path('solicitudes', solicitudes, name="solicitudes"),
+    path('usuarios', usuarios, name="usuarios"),
+    # path('add_taller', add_taller, name="add_taller"),
+    # path('add_user', add_user, name="add_user"),
+    # path('datos', datos, name="datos"),
     path('postulacion', postulacion, name="postulacion"),
-    path('admin_user', admin_user, name="admin_user"),
+    path('postulaciones', postulaciones, name="postulaciones"),
+    path('usuarios', usuarios, name="usuarios"),
+    path('eliminar-usuario/<int:id>/', eliminar_usuario, name="eliminar_usuario"),
+    # path('admin_user', admin_user, name="admin_user"),
+    path('talleresdisponibles', talleresdisponibles, name="talleresdisponibles"),
 
 ]
 

@@ -1,31 +1,22 @@
-{% extends 'layout/base.html' %}
+{% extends 'layout/public.html' %}
 {% block main %}
 {% load static %}
 <section id="middle">
 </section>
-<section id="main-content" class="text-white">
+<section id="main-content" class="mx-5 my-5 text-white">
     <div class="subheader row justify-content-between border-1 border-bottom pb-2" style="border-color: rgba(0,0,0,0.15) !important; color: #1D2127;">
         <div class="col">
             <h3 class="subheader-title">
-                <i class="fa-solid fa-list-alt bg-secundary" ></i> Listar <strong>{% if request.user.is_staff %}{% else %}Mis {% endif %}Talleres</strong>
+                <i class="fa-solid fa-list-alt bg-secundary" ></i> <strong>{% if request.user.is_staff %}{% else %}{% endif %}Talleres Disponibles</strong>
             </h3>
         </div>
         <div class="col justify-content-end text-end">
-            {% if request.user.is_staff %}
-            <a href="#" class="btn btn-primary waves-effect waves-themed ">
-                <span class="fas fa-plus mr-1"></span>
-                <strong>Nuevo taller</strong>
-            </a>
-            <!-- <a href="" class="btn btn-primary waves-effect waves-themed ">
-                <span class="fas fa-plus mr-1"></span>
-                <strong>Nuevo taller</strong>
-            </a> -->
-            {% endif %}
+
         </div>
     </div>
     <div class="content py-3">
         <div class="row">
-            <table class="table table-striped table-hover" id="tabla-causas" data-toolbar="#toolbar" data-search="true" data-show-refresh="true">
+            <table class="table table-striped table-hover" id="tabla-causas" data-toolbar="#toolbar" data-search="true" data-show-refresh="true" style="font-size:22px;">
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>
@@ -34,9 +25,8 @@
                         <th scope="col">Horario</th>
                         <th scope="col">Sala</th>
                         <th scope="col">Instructor</th>
-                        {% if request.user.is_staff %}
                         <th scope="col">Acciones</th>
-                        {% endif %}
+           
                     </tr>
                 </thead>
                 <tbody>
@@ -51,6 +41,10 @@
                         <th scope="col">
                             <a id="button-talleres" href="#" class="btn btn-labeled btn-primary py-0 px-1" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa-solid fa-pen"> </i></a>
                             <a id="button-talleres" href="#" class="btn btn-labeled btn-primary py-0 px-1" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa-solid fa-trash" alt="Eliminar"> </i></a>
+                        </th>
+                        {% else %} 
+                        <th scope="col">
+                            <a id="button-talleres" href="{% url 'registro' %}" class="btn btn-labeled btn-primary py-0 px-1" data-toggle="tooltip" data-placement="top" title="Postular" style="font-size: 24px;"><i class="fa-solid fa-code-pull-request"></i> Postular</a>
                         </th>
                         {% endif %}
                     </tr>
@@ -80,65 +74,7 @@
                         </th>
                     </tr>
                     {% endif %}
-                    <!-- {% if request.user.is_staff %}
-                        {% if causas %}
-                            {% for c in causas %}
-                            <tr>
-                                <th scope="row">{{ c.nro_causa }}</th>
-                                <td>{{ c.tribunal }}</td>
-                                <td>{{ c.corte }}</td>
-                                <td>{{ c.litigante.user }}</td>
-                                <td>{{ c.fecha_ingreso }}</td>
-                                <td><div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Acciones
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="/admin/talleresapp/causa/{{ c.id }}/">Modificar</a>
-                                        <a class="dropdown-item" href="/admin/talleresapp/causa/{{ c.id }}/delete/">Eliminar</a>
-                                    </div>
-                                </div></td>
-                            </tr>
-                            {% endfor %}
-                        {% else %}
-                            <script>
-                                Swal.fire({
-                                    'title': 'Ups',
-                                    'text' : '¡No hay talleres disponibles!',
-                                    'icon' : 'info'
-                                })
-                            </script>
-                        {% endif %}
-                    {% else %}
-                        {% if miscausas %}
-                            {% for c in miscausas %}
-                                <tr>
-                                    <th scope="row">{{ c.nro_causa }}</th>
-                                    <td>{{ c.tribunal }}</td>
-                                    <td>{{ c.corte }}</td>
-                                    <td>{{ c.litigante.user }}</td>
-                                    <td>{{ c.fecha_ingreso }}</td>
-                                    <td><div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Acciones
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="/admin/talleresapp/causa/{{ c.id }}/change/">Modificar</a>
-                                            <a class="dropdown-item" href="/admin/talleresapp/causa/{{ c.id }}/delete/">Eliminar</a>
-                                        </div>
-                                    </div></td>
-                                </tr>
-                            {% endfor %}
-                        {% else %}
-                            <script>
-                                Swal.fire({
-                                    'title': 'Oh oh...',
-                                    'text' : '¡No existen talleres asociados!',
-                                    'icon' : 'error'
-                                })
-                            </script>
-                        {% endif %}
-                    {% endif %} -->
+
                 </tbody>
               </table>
         </div>

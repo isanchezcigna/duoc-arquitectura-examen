@@ -32,7 +32,8 @@ PASO A PASO:
     python manage.py sqlflush
     borrar archivos: migrations/* a excepción de init py y 0001_initial
 
-
+Si da error porque tabla existe:
+    python manage.py migrate --fake
 
 
 

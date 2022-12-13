@@ -1,8 +1,101 @@
+from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 # Create your models here.
+
+
+# class Rol(models.Model):
+#     descripcion = models.CharField(max_length=255)
+#     estado = models.BooleanField()
+
+#     def __str__(self):
+#         return self.descripcion
+
+#     class Meta:
+#         db_table = 'rol'
+#         verbose_name = 'Rol'
+#         verbose_name_plural = 'Roles'
+#         ordering = ['id']   
+
+# class Persona(models.Model):
+#     rut = models.CharField(max_length=15)
+#     nombre = models.CharField(max_length=255)
+#     genero = models.CharField(max_length=1)
+#     fecha_nac = models.DateTimeField(editable=True)
+#     direccion = models.CharField(max_length=200)
+#     telefono = models.CharField(max_length=15)
+#     correo = models.CharField(max_length=255)
+    
+#     def __str__(self):
+#         return self.rut
+
+#     class Meta:
+#         db_table = 'persona'
+#         verbose_name = 'Persona'
+#         verbose_name_plural = 'Personas'
+#         ordering = ['id']    
+    
+# class Pago(models.Model):
+#     fecha = models.models.DateTimeField(editable=True, auto_now_add=True)
+#     subtotal = models.IntegerField(null=False)
+#     incentivo = models.IntegerField(null=False)
+#     total = models.IntegerField(null=False)
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+
+#     def __int__(self):
+#         return self.total
+
+#     class Meta:
+#         db_table = 'pago'
+#         verbose_name = 'Pago'
+#         verbose_name_plural = 'Pagos'
+#         ordering = ['id']  
+
+
+class Postulacion(models.Model):
+    class Estado(models.IntegerChoices):
+        GENERADO = 0
+        ASIGNADO = 1
+        APROBADO = 2
+        RECHAZADO = 3
+        FALTA_INFO = 4
+        ANULADO = 5
+
+    DIAS =(
+        ("LU", "Lunes"),
+        ("MA", "Martes"),
+        ("MI", "Miércoles"),
+        ("JU", "Jueves"),
+        ("VI", "Viernes"),
+        ("SA", "Sábado"),
+        ("DO", "Domingo"),
+    )
+
+    nombre = models.CharField(max_length=255)
+    rut = models.CharField(max_length=15)
+    fecha_nac = models.CharField(max_length=10)
+    correo = models.CharField(max_length=255)
+    telefono = models.CharField(max_length=12)
+    descripcion = models.CharField(max_length=200)
+    requiere_material = models.BooleanField()
+    requiere_lugar = models.BooleanField()
+    fecha_inicio = models.DateField(editable=True)
+    fecha_fin = models.DateField(editable=True)
+    dias_impartir = models.CharField(choices=DIAS, max_length=200)
+    desc_habilidades = models.CharField(max_length=255)
+    arch_habilidades = models.FileField()
+    estado = models.IntegerField(choices=Estado.choices, default=0)
+    
+    def __str__(self):
+        return self.nombre
+
+    class Meta:
+        db_table = 'postulacion'
+        verbose_name = 'Postulacion'
+        verbose_name_plural = 'Postulaciones'
+        ordering = ['id']
 
 class Litigante(models.Model):
     rut = models.CharField(max_length=13)
