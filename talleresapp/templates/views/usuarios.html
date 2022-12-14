@@ -47,7 +47,7 @@
                             <th scope="col">{{ user.email }}</th>
                             <th scope="col">{% if user.is_active %}Activo{% else %}Inactivo{% endif %}</th>
                             <th scope="col">
-                                <!-- <a id="button-talleres" href="#" class="btn btn-labeled btn-primary py-0 px-1" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa-solid fa-pen"></i> Editar</a> -->
+                                <a id="button-talleres" href="/admin/auth/user/{{ user.id }}/change/" class="btn btn-labeled btn-primary py-0 px-1" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa-solid fa-pen"></i> Editar</a>
                                 <a id="button-talleres" href='/admin/auth/user/{{ user.id }}/delete/' class="btn btn-labeled btn-primary py-0 px-1" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa-solid fa-trash" alt="Eliminar"> </i> Eliminar</a>
                             </th>
                         </tr>
